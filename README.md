@@ -4,6 +4,12 @@
 
 [![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0821--2991-a6ce39?style=flat&logo=orcid&logoColor=white)](https://orcid.org/0000-0003-0821-2991)
 [![Email](https://img.shields.io/badge/Email-saifeldinkhedir%40gmail.com-D14836?style=flat&logo=gmail&logoColor=white)](mailto:saifeldinkhedir@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Seifeldin%20Alkedir-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/seifelden-alkhedir-6b730985/)
+[![Zenodo](https://img.shields.io/badge/Zenodo-DOI%20Records-1682D4?style=flat&logo=zenodo&logoColor=white)](https://zenodo.org/me/uploads?q=&f=shared_with_me%3Afalse&l=list&p=1&s=10&sort=newest)
+[![YouTube](https://img.shields.io/badge/YouTube-Channel-FF0000?style=flat&logo=youtube&logoColor=white)](https://www.youtube.com/@seifeldinalkedir)
+[![Website](https://img.shields.io/badge/Website-Portfolio-10b981?style=flat&logo=google-chrome&logoColor=white)](https://seifeldinalkedir.github.io/hsae)
+[![QGIS](https://img.shields.io/badge/QGIS-Plugin-589632?style=flat&logo=qgis&logoColor=white)](https://plugins.qgis.org)
+[![CV](https://img.shields.io/badge/CV-Download-6366F1?style=flat&logo=read-the-docs&logoColor=white)](https://github.com/alkedir/hsae/blob/main/CV_Seifeldin_Alkedir.pdf)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=flat)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white)](https://python.org)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.38-FF4B4B?style=flat&logo=streamlit&logoColor=white)](https://streamlit.io)
@@ -30,8 +36,13 @@
 | 🛠️ **Technical** | CESMP · EIA/ESIA · Air & Noise Modelling (AERMOD, SoundPLAN) · GIS & Remote Sensing |
 | 📍 **Location** | Madinah, Saudi Arabia |
 | 📞 **Phone** | +966 0500896171 |
-| 📧 **Email** | saifeldinkhedir@gmail.com |
+| 📧 **Email** | [saifeldinkhedir@gmail.com](mailto:saifeldinkhedir@gmail.com) |
 | 🔬 **ORCID** | [0000-0003-0821-2991](https://orcid.org/0000-0003-0821-2991) |
+| 💼 **LinkedIn** | [seifelden-alkhedir](https://www.linkedin.com/in/seifelden-alkhedir-6b730985/) |
+| 📦 **Zenodo** | [DOI Records & Datasets](https://zenodo.org/me/uploads?q=&f=shared_with_me%3Afalse&l=list&p=1&s=10&sort=newest) |
+| 🎬 **YouTube** | [HSAE Video Channel](https://www.youtube.com/@seifeldinalkedir) |
+| 🌐 **Website** | [seifeldinalkedir.github.io/hsae](https://seifeldinalkedir.github.io/hsae) |
+| 📄 **CV** | [Download PDF](https://github.com/alkedir/hsae/blob/main/CV_Seifeldin_Alkedir.pdf) |
 
 ---
 
@@ -49,6 +60,33 @@ Four pillars:
 | ⚖️ **Water Law** | UN 1997 Convention (17 articles) · ICJ/PCA/ITLOS · Auto-protest · IPCC AR6 SSP scenarios |
 
 Applied to **26 globally contested transboundary basins** across **7 continents**.
+
+---
+
+## 🔌 QGIS Plugin — HydroSovereign Toolkit
+
+HSAE includes a companion **QGIS Plugin** for desktop GIS integration, enabling direct use of the platform's basin data and TDI outputs inside any QGIS project.
+
+| Feature | Description |
+|---------|-------------|
+| 🗺️ **Basin Layer Loader** | Load all 26 transboundary basins as vector layers into QGIS |
+| 📊 **TDI Visualiser** | Display Transparency Deficit Index as graduated colour maps |
+| 🛰️ **GEE Bridge** | Trigger GEE data fetch from QGIS Processing Toolbox |
+| ⚖️ **Legal Risk Layer** | Overlay UN 1997 article violation status per basin |
+| 📥 **Export** | One-click export of basin + TDI data to shapefile or GeoJSON |
+
+**Install via QGIS Plugin Manager:**
+```
+Plugins → Manage and Install Plugins → Search: HydroSovereign
+```
+
+Or install manually:
+```bash
+git clone https://github.com/alkedir/hsae-qgis \
+  ~/.local/share/QGIS/QGIS3/profiles/default/python/plugins/hsae_qgis
+```
+
+> 🔗 [QGIS Plugin Repository](https://plugins.qgis.org) · [Plugin Source](https://github.com/alkedir/hsae-qgis)
 
 ---
 
@@ -112,6 +150,7 @@ HBV (Bergström, 1992) · Penman-Monteith ET₀ (Allen et al., 1998) · SCS-CN (
 | AI models | RF only | **RF + MLP + GBM + IsolationForest** |
 | Climate scenarios (SSP) | ❌ | **SSP1/2/3/5 to 2100** |
 | SQLite persistence | ❌ | **✅** |
+| QGIS Plugin | ❌ | **✅** |
 | Syntax errors | 0 | **0** |
 
 ---
@@ -179,8 +218,12 @@ HydroSovereign_HSAE/
 │   ├── hsae_export.py      HTML/Excel/JSON/GeoJSON export
 │   └── hsae_intro.py       Welcome + basin explorer
 │
+├── QGIS Plugin
+│   └── hsae_qgis/          Desktop GIS integration layer
+│
 └── Configuration
     ├── requirements.txt
+    ├── CV_Seifeldin_Alkedir.pdf
     └── .streamlit/config.toml
 ```
 
@@ -199,6 +242,36 @@ earthengine authenticate   # one-time
 2. Select sensor → copy JavaScript
 3. Paste into [code.earthengine.google.com](https://code.earthengine.google.com) → Run → Export to Drive
 4. Download CSV → upload in **GEE Uploads** tab → **🔗 Merge All Sources**
+
+---
+
+## 🎬 Video Walkthrough
+
+Full video demonstration of HSAE v6.0.0 — TDI formula · GEE live fetch · AI ensemble · UN 1997 legal engine · 26 basins · SSP climate scenarios:
+
+[![YouTube](https://img.shields.io/badge/▶_Watch_Full_Demo-YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@seifeldinalkedir)
+
+---
+
+## 📄 CV
+
+[![CV Download](https://img.shields.io/badge/📄_Download_CV-PDF-6366F1?style=for-the-badge&logo=adobe-acrobat-reader&logoColor=white)](https://github.com/alkedir/hsae/blob/main/CV_Seifeldin_Alkedir.pdf)
+
+10+ years environmental management · M.Sc. Environmental Science · ISO 14001 · PMP · IOSH · GIS & Remote Sensing
+
+---
+
+## 📦 Zenodo — Datasets & Releases
+
+All versioned releases and datasets are permanently archived on Zenodo for DOI-based citation:
+
+[![Zenodo](https://img.shields.io/badge/Zenodo-All%20Records-1682D4?style=for-the-badge&logo=zenodo&logoColor=white)](https://zenodo.org/me/uploads?q=&f=shared_with_me%3Afalse&l=list&p=1&s=10&sort=newest)
+
+| Record | Description |
+|--------|-------------|
+| HSAE v6.0.0 | Full platform release — code + basin data |
+| TDI Methodology | Canonical formula documentation |
+| 26-Basin Registry | basins_global.py dataset with full metadata |
 
 ---
 
@@ -229,6 +302,16 @@ The ten original contributions listed above are documented here to record the or
 ---
 
 <div align="center">
-<i>Combining 10 years of field environmental practice with satellite science and AI<br>
-to address the water sovereignty challenges of transboundary river basins.</i>
+
+[![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0821--2991-a6ce39?style=flat&logo=orcid&logoColor=white)](https://orcid.org/0000-0003-0821-2991)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/seifelden-alkhedir-6b730985/)
+[![Zenodo](https://img.shields.io/badge/Zenodo-Records-1682D4?style=flat&logo=zenodo&logoColor=white)](https://zenodo.org/me/uploads?q=&f=shared_with_me%3Afalse&l=list&p=1&s=10&sort=newest)
+[![YouTube](https://img.shields.io/badge/YouTube-Channel-FF0000?style=flat&logo=youtube&logoColor=white)](https://www.youtube.com/@seifeldinalkedir)
+[![Website](https://img.shields.io/badge/Website-Portfolio-10b981?style=flat&logo=google-chrome&logoColor=white)](https://seifeldinalkedir.github.io/hsae)
+[![QGIS](https://img.shields.io/badge/QGIS-Plugin-589632?style=flat&logo=qgis&logoColor=white)](https://plugins.qgis.org)
+[![CV](https://img.shields.io/badge/CV-PDF-6366F1?style=flat&logo=read-the-docs&logoColor=white)](https://github.com/alkedir/hsae/blob/main/CV_Seifeldin_Alkedir.pdf)
+
+*Combining 10 years of field environmental practice with satellite science and AI*
+*to address the water sovereignty challenges of transboundary river basins.*
+
 </div>
