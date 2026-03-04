@@ -1,169 +1,234 @@
-# HydroSovereign AI Engine (HSAE) v5.0.0
+<div align="center">
 
-> **"Satellites can now see what declarations hide."**
+# 🌊 HydroSovereign AI Engine — HSAE v6.0.0
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://python.org)
-[![Streamlit](https://img.shields.io/badge/Streamlit-1.28%2B-red.svg)](https://streamlit.io)
-[![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0821--2991-brightgreen.svg)](https://orcid.org/0000-0003-0821-2991)
+[![ORCID](https://img.shields.io/badge/ORCID-0000--0003--0821--2991-a6ce39?style=flat&logo=orcid&logoColor=white)](https://orcid.org/0000-0003-0821-2991)
+[![Email](https://img.shields.io/badge/Email-saifeldinkhedir%40gmail.com-D14836?style=flat&logo=gmail&logoColor=white)](mailto:saifeldinkhedir@gmail.com)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=flat)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat&logo=python&logoColor=white)](https://python.org)
+[![Streamlit](https://img.shields.io/badge/Streamlit-1.38-FF4B4B?style=flat&logo=streamlit&logoColor=white)](https://streamlit.io)
+[![GEE](https://img.shields.io/badge/Google%20Earth%20Engine-ready-4285F4?style=flat&logo=google&logoColor=white)](https://earthengine.google.com)
 
-**Author:** Seifeldin M.G. Alkedir  
-**Affiliation:** Independent Researcher (BSc & MSc, University of Khartoum)  
-**ORCID:** [0000-0003-0821-2991](https://orcid.org/0000-0003-0821-2991)  
-**Version:** 5.0.0 | **Released:** February 2026
+**26 basins · 7 continents · 15,023 lines · 23 Python modules · Zero syntax errors**
 
----
+*"Satellites can now see what declarations hide — and climate change will make the gap worse."*
 
-## What is HSAE?
-
-HSAE is the **first open-source platform** that unifies multi-source satellite remote sensing,
-conceptual rainfall-runoff modelling, machine learning, and international water law automation
-into a single sovereign intelligence system for transboundary reservoir monitoring.
-
-**Four pillars:**
-
-- 🛰️ **Satellite RS** — Sentinel-1 SAR · Sentinel-2 MSI · GPM IMERG · MODIS MOD16
-- 💧 **Hydrology** — HBV rainfall-runoff model · Muskingum routing · MODFLOW groundwater
-- 🧠 **AI / ML** — Random Forest 90-day forecast · Monte Carlo uncertainty
-- ⚖️ **Water Law** — UN 1997 Watercourses Convention (12 articles) · ICJ evidence chain
-
-Applied to **24 globally contested transboundary basins** across 7 continents.
+</div>
 
 ---
 
-## Original Scientific Contributions
+## 👤 Author
 
-Ten original contributions introduced in HSAE v5.0.0, documented here to record
-the original formulation and support proper attribution.
+**Seifeldin M.G. Alkedir** — سيف الدين محمد قسم الله الخضر
 
-### Group A — Indices and Metrics
+| | |
+|--|--|
+| 🎓 **Education** | M.Sc. Environmental Science · B.Sc. Chemistry — University of Khartoum |
+| 💼 **Role** | Independent Researcher · Environmental Manager & Consulting Project Manager (10+ years) |
+| 🏗️ **Projects** | NEOM · Saudi Aramco · Rua Al Madinah · Municipal Mega-Projects |
+| 📜 **Certifications** | ISO 14001 · PMP · IOSH |
+| 🛠️ **Technical** | CESMP · EIA/ESIA · Air & Noise Modelling (AERMOD, SoundPLAN) · GIS & Remote Sensing |
+| 📍 **Location** | Madinah, Saudi Arabia |
+| 📞 **Phone** | +966 0500896171 |
+| 📧 **Email** | saifeldinkhedir@gmail.com |
+| 🔬 **ORCID** | [0000-0003-0821-2991](https://orcid.org/0000-0003-0821-2991) |
 
-| Symbol | Full Name | Formula | Source |
+---
+
+## 🌊 What is HSAE?
+
+**HSAE** is the first open-source platform that unifies **multi-source satellite remote sensing**, **conceptual rainfall-runoff modelling**, **machine learning**, and **international water law automation** into a single sovereign intelligence system for transboundary reservoir monitoring.
+
+Four pillars:
+
+| Pillar | Components |
+|--------|-----------|
+| 🛰️ **Satellite RS** | Sentinel-1 SAR · Sentinel-2 NDWI · GPM IMERG · MODIS ET/NDVI/LST · VIIRS NTL · Landsat WQ |
+| 💧 **Hydrology** | HBV rainfall-runoff · Muskingum routing · MODFLOW groundwater · Penman-Monteith ET₀ |
+| 🧠 **AI / ML** | RF + MLP + GBM Ensemble · Isolation Forest · Multi-step Forecast · Monte Carlo |
+| ⚖️ **Water Law** | UN 1997 Convention (17 articles) · ICJ/PCA/ITLOS · Auto-protest · IPCC AR6 SSP scenarios |
+
+Applied to **26 globally contested transboundary basins** across **7 continents**.
+
+---
+
+## 🔬 Original Scientific Contributions
+
+Ten original indices and frameworks introduced in HSAE, documented here to establish priority of authorship.
+
+### Group A — Indices & Metrics
+
+| Symbol | Full Name | Formula | Module |
 |--------|-----------|---------|--------|
-| **ATDI** | Alkedir Transparency Deficit Index | `clip((I_adj − Q_out) / (I_adj + 0.1), 0, 1)` | `hsae_v990.py L146` |
-| **AHIFD** | Alkedir Human-Induced Flow Deficit | `(Q_nat − Q_obs) / Q_nat × 100` | `hsae_hbv.py L365` |
-| **ASI** | Alkedir Sovereignty Index | `0.35·E + 0.25·ADTS + 0.25·F + 0.15·(1−D/5)` | `hsae_opsroom.py L109` |
-| **ADTS** | Alkedir Digital Transparency Score | `max(0, 100 − ATDI)` | `hsae_opsroom.py L95` |
-| **α = 0.3** | Alkedir MODIS ET Correction Coefficient | `I_adj = max(0, I_in − 0.3 × natural_loss)` | `hsae_v990.py L145` |
+| **ATDI** | Alkedir Transparency Deficit Index | `clip((I_adj − Q_out) / (I_adj + 0.001), 0, 1)` | hsae_tdi.py |
+| **AHIFD** | Alkedir Human-Induced Flow Deficit | `(Q_nat − Q_obs) / Q_nat × 100` | hsae_hbv.py |
+| **ASI** | Alkedir Sovereignty Index | `0.35·E + 0.25·ADTS + 0.25·F + 0.15·(1−D/5)` | hsae_opsroom.py |
+| **ADTS** | Alkedir Digital Transparency Score | `max(0, 100 − ATDI)` | hsae_opsroom.py |
+| **α = 0.30** | Alkedir MODIS ET Correction Coefficient | `I_adj = max(0, I_in − 0.30 × (ET_PM + ET_MODIS))` | hsae_tdi.py |
 
-### Group B — Frameworks and Architectures
+### Group B — Frameworks & Architectures
 
-| Symbol | Full Name | Description | Source |
+| Symbol | Full Name | Description | Module |
 |--------|-----------|-------------|--------|
-| **ALTM** | Alkedir Legal Threshold Mapping | ATDI/AHIFD → UN 1997 Arts. 5 / 7 / 12 | `hsae_hbv.py L366–367` |
-| **AFSF** | Alkedir Forensic Scoring Function | `rolling_4_mean(ATDI).max() × 100` | `hsae_v430.py L153` |
-| **ASCAF** | Alkedir SAR-NDWI Cloud-Adaptive Fusion | `S1·w + S2·(1−w); optical_ok = NDWI ≥ threshold` | `hsae_v430.py L99–100` |
-| **AWSRM** | Alkedir Water Sovereignty Risk Matrix | 2-D: ATDI × Dispute Level → 5 risk tiers | `hsae_opsroom.py` |
-| **AHLB** | Alkedir HBV-Legal Bridge | HBV output → AHIFD → ALTM → treaty article flags | `hsae_hbv.py L784` |
+| **ALTM** | Alkedir Legal Threshold Mapping | ATDI/AHIFD → UN 1997 Arts. 5 / 7 / 9 / 12 | hsae_hbv.py |
+| **AFSF** | Alkedir Forensic Scoring Function | `rolling_30(TDI).max() × 100` | hsae_v430.py |
+| **ASCAF** | Alkedir SAR-NDWI Cloud-Adaptive Fusion | `S1·w + S2·(1−w)` ; w driven by cloud cover | gee_engine.py |
+| **AWSRM** | Alkedir Water Sovereignty Risk Matrix | 2-D: ATDI × Dispute Level → 5 risk tiers | hsae_opsroom.py |
+| **AHLB** | Alkedir HBV-Legal Bridge | HBV → AHIFD → ALTM → treaty article flags | hsae_hbv.py |
 
-### Standard Methods Used
+### Canonical TDI Formula (hsae_tdi.py — single source of truth)
 
-HSAE implements the following established methods, credited to their original authors:
-HBV (Bergström, 1992), Penman-Monteith ET₀ (Allen et al., 1998),
-SCS-CN (USDA, 1986), Muskingum (McCarthy, 1938),
-NSE/KGE/PBIAS (Nash & Sutcliffe, 1970; Gupta et al., 2009),
-Random Forest (Breiman, 2001), MODFLOW (McDonald & Harbaugh, 1988).
+```
+I_adj  = max(0, I_in − 0.30 × (ET_PM + ET_MODIS))   [BCM/day]
+TDI    = max(0, (I_adj − Q_out) / (I_adj + 0.001))    [0–1]
+ATDI   = mean(TDI) × 100                               [%]
+AFSF   = max(rolling_30(TDI)) × 100                   [%]
+```
 
----
+**Legal trigger thresholds (UN 1997):**
 
-## System Statistics
+| TDI | Article | Violation |
+|-----|---------|-----------|
+| ≥ 0.25 | Art. 5 | Equitable & Reasonable Use |
+| ≥ 0.40 | Art. 7 | No Significant Harm |
+| ≥ 0.55 | Art. 9 | Regular Exchange of Data |
 
-| Metric | Value |
-|--------|-------|
-| Python source files | 15 |
-| Lines of code | 9,893+ |
-| Interactive pages | 13 |
-| Global basins | 24 (7 continents) |
-| UN 1997 articles automated | 12 |
-| Plotly interactive charts | 59 |
-| Original documented contributions | 10 |
-| Syntax errors | 0 |
+### Standard Methods (credited to original authors)
+
+HBV (Bergström, 1992) · Penman-Monteith ET₀ (Allen et al., 1998) · SCS-CN (USDA, 1986) · Muskingum (McCarthy, 1938) · NSE/KGE (Nash & Sutcliffe, 1970; Gupta et al., 2009) · Random Forest (Breiman, 2001) · MODFLOW (McDonald & Harbaugh, 1988)
 
 ---
 
-## Quick Start
+## 📊 System Statistics
+
+| Metric | v5.0.0 | v6.0.0 |
+|--------|--------|--------|
+| Python source files | 15 | **23** |
+| Lines of code | 9,893 | **15,023** |
+| Global basins | 24 | **26** |
+| Satellite sensors | 3 | **8** |
+| UN 1997 articles automated | 12 | **17** |
+| GEE Python API (live fetch) | ❌ | **✅** |
+| AI models | RF only | **RF + MLP + GBM + IsolationForest** |
+| Climate scenarios (SSP) | ❌ | **SSP1/2/3/5 to 2100** |
+| SQLite persistence | ❌ | **✅** |
+| Syntax errors | 0 | **0** |
+
+---
+
+## 🚀 Quick Start
 
 ```bash
 # 1. Clone
-git clone https://github.com/seifeldin-alkedir/HSAE.git
-cd HSAE
+git clone https://github.com/alkedir/hsae.git
+cd hsae
 
-# 2. Install
-pip install streamlit pandas numpy plotly scikit-learn \
-            pillow folium streamlit-folium requests
+# 2. Install dependencies
+pip install streamlit pandas numpy scipy plotly folium streamlit-folium \
+            scikit-learn requests openpyxl schedule python-telegram-bot \
+            earthengine-api
 
-# 3. Run
-streamlit run app.py          # → http://localhost:8501
+# 3. (Optional) Activate GEE Live Engine — one-time browser login
+earthengine authenticate
+
+# 4. Run
+streamlit run app.py
 ```
 
-**Docker (full stack — Streamlit + PostgreSQL + pgAdmin):**
+Opens at: **http://localhost:8501**
+
+---
+
+## 🏗️ Architecture
+
+```
+HydroSovereign_HSAE/
+├── app.py                  Main router + simulation engine
+├── basins_global.py        26-basin registry (single source of truth)
+├── hsae_tdi.py             ★ Canonical TDI (ε = 0.001 · α = 0.30)
+│
+├── Satellite Data
+│   ├── gee_engine.py       GEE Python API — live fetch (8 sensors)
+│   ├── hsae_gee_data.py    GEE JS scripts + 5 live APIs + parsers + UI
+│   └── ground_data.py      Compatibility shim
+│
+├── Scientific Core
+│   ├── hsae_science.py     Water balance · Penman-Monteith ET₀ · Monte Carlo
+│   ├── hsae_hbv.py         HBV + AHIFD + ALTM + AHLB
+│   ├── hsae_validation.py  NSE / KGE / RMSE / Taylor Diagram + GRDC
+│   ├── hsae_v430.py        Hybrid DSS + ASCAF + AFSF
+│   └── hsae_v990.py        Legal Nexus + ATDI + α=0.30
+│
+├── AI & Climate
+│   ├── hsae_ai.py          RF+MLP+GBM + Isolation Forest + forecast
+│   └── hsae_climate.py     SSP1-2.6/2-4.5/3-7.0/5-8.5 to 2100
+│
+├── Legal & Governance
+│   ├── hsae_legal.py       UN 1997 Arts 5–21 + ICJ/PCA/ITLOS
+│   └── hsae_audit.py       RBAC + SHA-256 audit trail
+│
+├── Operations
+│   ├── hsae_opsroom.py     ASI + ADTS + AWSRM + SITREP dashboard
+│   ├── hsae_alerts.py      4-level alerts + Telegram + Art.12 protest
+│   ├── hsae_devops.py      CI/CD + monitoring
+│   └── hsae_db.py          SQLite: run history + anomaly events
+│
+├── Domain Modules
+│   ├── hsae_quality.py     WQI — WHO/FAO — Arts. 20/21
+│   ├── hsae_groundwater.py MODFLOW + FAO-56 irrigation + Muskingum
+│   ├── hsae_export.py      HTML/Excel/JSON/GeoJSON export
+│   └── hsae_intro.py       Welcome + basin explorer
+│
+└── Configuration
+    ├── requirements.txt
+    └── .streamlit/config.toml
+```
+
+---
+
+## 🛰️ GEE Workflow
+
+**Option A — Python API (live):**
 ```bash
-docker compose up -d
-# Streamlit  → http://localhost:8501
-# pgAdmin    → http://localhost:5050
+earthengine authenticate   # one-time
+# Then use ⚡ GEE Live Engine tab in the app
 ```
+
+**Option B — Manual export:**
+1. **📡 Real Data · APIs** → **GEE Scripts** tab
+2. Select sensor → copy JavaScript
+3. Paste into [code.earthengine.google.com](https://code.earthengine.google.com) → Run → Export to Drive
+4. Download CSV → upload in **GEE Uploads** tab → **🔗 Merge All Sources**
 
 ---
 
-## Module Structure
-
-```
-HSAE/
-├── app.py                  # 13-page Streamlit router
-├── basins_global.py        # 24-basin database — single source of truth
-│
-├── hsae_v430.py            # Hybrid DSS   — ASCAF · ATDI · AFSF   (10 tabs)
-├── hsae_v990.py            # Legal Nexus  — ATDI · α=0.3 · Nexus   (6 tabs)
-├── hsae_hbv.py             # HBV model    — AHIFD · ALTM · AHLB
-├── hsae_opsroom.py         # Operations   — ASI · ADTS · AWSRM · SITREP
-│
-├── hsae_alerts.py          # 4-level alerts · Telegram Bot · Art.12 protest
-├── hsae_audit.py           # SHA-256 chain · RBAC · ICJ admissibility
-├── hsae_legal.py           # ICJ/PCA/ITLOS database · protest generator
-├── hsae_science.py         # Penman-Monteith ET₀ · Monte Carlo
-├── hsae_validation.py      # NSE/KGE/PBIAS · Taylor diagram · FDC
-├── hsae_groundwater.py     # MODFLOW · FAO-56 irrigation · Muskingum
-├── hsae_quality.py         # 9 WQ parameters — WHO/FAO — Art.20/21
-├── hsae_devops.py          # PostGIS · FastAPI · Docker · CI/CD
-└── hsae_intro.py           # Architecture overview · quick start
-```
-
----
-
-## How to Cite
-
-If you use HSAE or any of the Alkedir indices in your work, please cite:
+## 📖 Citation
 
 ```bibtex
-@software{alkedir_hsae_2026,
+@software{alkedir2026hsae,
   author  = {Alkedir, Seifeldin M.G.},
-  title   = {HydroSovereign AI Engine (HSAE) v5.0.0},
+  title   = {HydroSovereign AI Engine (HSAE) v6.0.0},
   year    = {2026},
-  version = {5.0.0},
+  version = {6.0.0},
   doi     = {10.5281/zenodo.XXXXXXX},
-  url     = {https://github.com/seifeldin-alkedir/HSAE},
+  url     = {https://github.com/alkedir/hsae},
   orcid   = {0000-0003-0821-2991}
 }
 ```
 
-> **Note:** Peer-reviewed methodology papers describing the Alkedir indices
-> (ATDI, AHIFD, ASI, ALTM, AFSF, ASCAF, AWSRM, AHLB, ADTS, α)
-> are in preparation. This repository and Zenodo DOI serve as the
-> citable priority record in the interim.
+> **Note:** Peer-reviewed methodology papers describing the Alkedir indices (ATDI, AHIFD, ASI, ALTM, AFSF, ASCAF, AWSRM, AHLB, ADTS, α) are in preparation. This repository and Zenodo DOI serve as the citable priority record in the interim.
 
 ---
 
-## License
+## 📄 License
 
-[MIT License](LICENSE) — free to use, modify, and distribute with attribution.
+**MIT License** — free to use, modify, and distribute with attribution.
 
-The ten original contributions listed above are documented here to record the original
-formulation. Any academic use must cite the Zenodo DOI and the author's ORCID.
+The ten original contributions listed above are documented here to record the original formulation. Any academic use must cite the Zenodo DOI and the author's ORCID.
 
 ---
 
-## Contact
-
-**Seifeldin M.G. Alkedir** — Independent Researcher  
-BSc & MSc, University of Khartoum, Sudan  
-🔗 [orcid.org/0000-0003-0821-2991](https://orcid.org/0000-0003-0821-2991)
+<div align="center">
+<i>Combining 10 years of field environmental practice with satellite science and AI<br>
+to address the water sovereignty challenges of transboundary river basins.</i>
+</div>
